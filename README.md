@@ -1,1 +1,1 @@
-# generated
+Static website for carbcube
