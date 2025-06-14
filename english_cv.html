@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ralf Buscher - CV</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .cv-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2E86C1, #5DADE2);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background-color: #BDC3C7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            font-weight: bold;
+            overflow: hidden;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            font-weight: 300;
+        }
+        
+        .header .subtitle {
+            font-size: 1.2em;
+            margin: 10px 0;
+            opacity: 0.9;
+        }
+        
+        .header .description {
+            font-size: 1em;
+            line-height: 1.6;
+            margin: 20px 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            color: #555;
+        }
+        
+        .contact-item::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            margin-right: 8px;
+            background-color: #3498db;
+            border-radius: 2px;
+        }
+        
+        .section {
+            padding: 30px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .section:last-child {
+            border-bottom: none;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 5px;
+        }
+        
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .skill-tag {
+            background: #ecf0f1;
+            color: #2c3e50;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid #bdc3c7;
+        }
+        
+        .experience-item {
+            margin-bottom: 30px;
+            border-left: 3px solid #3498db;
+            padding-left: 20px;
+        }
+        
+        .experience-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .experience-date {
+            color: #3498db;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .experience-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 5px 0;
+        }
+        
+        .experience-company {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .experience-description ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .experience-description li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        
+        .education-item {
+            margin-bottom: 25px;
+        }
+        
+        .education-year {
+            color: #3498db;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+        
+        .education-degree {
+            font-size: 1.1em;
+            font-weight: 600;
+            color: #2c3e50;
+            margin: 5px 0;
+        }
+        
+        .education-school {
+            color: #7f8c8d;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        
+        .education-details {
+            color: #555;
+            font-size: 0.95em;
+        }
+        
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .language-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .language-name {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .language-level {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+        
+        .licenses {
+            color: #555;
+            font-size: 1.1em;
+            letter-spacing: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .skills-grid {
+                justify-content: center;
+            }
+            
+            .languages-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                max-width: none;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="header">
+            <div class="profile-img">
+                <img src="profilbild.jpg" alt="Ralf Buscher" onerror="this.style.display='none'; this.parentNode.innerHTML='RB';">
+            </div>
+            <h1>Ralf Buscher</h1>
+            <div class="subtitle">Diploma in Industrial Engineering (FH) - October 11, 1976</div>
+            <div class="description">
+                Experienced engineer and project manager with technical training and education. Specialized in international infrastructure and procurement projects, particularly in renewable energy. Leads interdisciplinary teams goal-oriented and collaboratively to project success – with high implementation strength, deep technical understanding, and clear focus on economic efficiency and sustainability. Sound knowledge in contract and claim management as well as holistic-oriented investment evaluation.
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <div class="contact-item">ralf-buscher@t-online.de</div>
+            <div class="contact-item">+49 1722014350</div>
+            <div class="contact-item">Samariterstraße 6, 50968 Cologne, Germany</div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">SKILLS</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">International Project Management</div>
+                <div class="skill-tag">Structured Work Approach</div>
+                <div class="skill-tag">Deep Technical Understanding</div>
+                <div class="skill-tag">Negotiation</div>
+                <div class="skill-tag">Interdisciplinary Collaboration</div>
+                <div class="skill-tag">Communication</div>
+                <div class="skill-tag">Team Leadership</div>
+                <div class="skill-tag">Claim Management</div>
+                <div class="skill-tag">Kanban</div>
+                <div class="skill-tag">Contract Management</div>
+                <div class="skill-tag">Workflow Solutions</div>
+                <div class="skill-tag">Office Applications</div>
+                <div class="skill-tag">SAP</div>
+                <div class="skill-tag">Budgeting</div>
+                <div class="skill-tag">Cost Engineering</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">PROFESSIONAL EXPERIENCE</h2>
+            
+            <div class="experience-item">
+                <div class="experience-date">01/2025 - 04/2025</div>
+                <div class="experience-title">Manager Renewable Energy</div>
+                <div class="experience-company">Wirtgen Invest - Neustadt (Wied)</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Development and implementation of a new PV project with a capacity of 18 MWp and scalable storage from 2 MWh to 10 MWh to ensure maximum flexibility and efficiency.</li>
+                        <li>Establishment of a comprehensive monitoring and reporting system to optimize commercial and technical operations management of PV systems.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-date">04/2011 - 12/2024</div>
+                <div class="experience-title">International Project Procurement Manager</div>
+                <div class="experience-company">Quarzwerke GmbH - Frechen</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Responsibility for procurement of all renewable energy projects, including PV, wind, storage, and power-to-heat, with focus on Total Cost of Ownership.</li>
+                        <li>Planning and initiation of a new business field for secondary raw materials through construction of a container glass recycling plant in Poland with a budget of approximately 40 million €.</li>
+                        <li>Managing procurement for new plant construction in Poland from 2018 to 2022, with a project budget of approximately 40 million €, as well as in Russia from 2015 to 2018 with a budget of approximately 35 million €.</li>
+                        <li>Development of procurement strategy and planning budgets for projects in collaboration with project management, including coordination of delivery and time schedules as well as creation of procurement plans.</li>
+                        <li>Supervision of master's theses and expansion of existing as well as development of new supply chains and supplier relationships in international procurement markets.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-date">04/2006 - 03/2011</div>
+                <div class="experience-title">Technical Purchaser</div>
+                <div class="experience-company">profine GmbH - Troisdorf</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Successfully implemented investment purchasing in Germany, Russia, Ukraine, Spain, France, Italy, USA, China.</li>
+                        <li>Commodity group manager for aluminum, steel, and molded parts.</li>
+                        <li>Independently managed strategic procurement and alignment for technical services and process energy generation systems.</li>
+                        <li>Analyzed and optimized SCM processes to increase purchasing performance and efficiency of plastic profile manufacturing.</li>
+                        <li>Successfully carried out plant relocation, achieved improvement in operational processes.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-date">02/2006 - 03/2006</div>
+                <div class="experience-title">Project Engineer</div>
+                <div class="experience-company">Engelhard GmbH - Nienburg</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Implemented results of diploma thesis</li>
+                        <li>Converted manufacturing processes for catalysts</li>
+                        <li>Built new production line for catalysts</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-date">02/1997 - 08/1999</div>
+                <div class="experience-title">Service Technician in Energy Supply Network</div>
+                <div class="experience-company">EWE - Oldenburg</div>
+                <div class="experience-description">
+                    <ul>
+                        <li>Pre-clarification and coordination of house connections in energy supply network for smooth integrations</li>
+                        <li>Supervision and monitoring of external companies in 1 kV and 20 kV areas to ensure quality standards</li>
+                        <li>Execution of network activities in 1 kV and 20 kV areas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">EDUCATION</h2>
+            
+            <div class="education-item">
+                <div class="education-year">2006</div>
+                <div class="education-degree">Diploma FH</div>
+                <div class="education-school">University of Applied Sciences Wilhelmshaven - Wilhelmshaven</div>
+                <div class="education-details">
+                    <strong>Industrial Engineering</strong><br>
+                    Specializations:
+                    <ul>
+                        <li>Analysis of economic aspects of the energy industry</li>
+                        <li>Process optimization in automation technology</li>
+                        <li>Strategies for process improvement in product management</li>
+                        <li>Logistics procedures for cost reduction and efficiency improvement</li>
+                        <li>Diploma thesis at Engelhard (now BASF) led to successful conversion of coating process for automotive catalysts, final grade: 1.3</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-year">2003</div>
+                <div class="education-degree">Practical Semester USA</div>
+                <div class="education-school">Boston</div>
+                <div class="education-details">
+                    <strong>Business Informatics</strong>
+                    <ul>
+                        <li>Support in sales and customer support</li>
+                        <li>Responsible for bug tracking system of new software</li>
+                        <li>Installation and management of new test networks</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-year">1999</div>
+                <div class="education-degree">University Entrance Qualification (Evening Classes)</div>
+                <div class="education-school">Vocational Schools Aurich - Aurich</div>
+                <div class="education-details">
+                    <strong>Technology</strong> - Successfully completed
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-year">2000</div>
+                <div class="education-degree">German Armed Forces, Conscript W10</div>
+                <div class="education-school">Aurich</div>
+                <div class="education-details">
+                    <strong>Air Force</strong> - Radar Communication Soldier
+                </div>
+            </div>
+            
+            <div class="education-item">
+                <div class="education-year">1997</div>
+                <div class="education-degree">Completed Apprenticeship</div>
+                <div class="education-school">EWE AG - Oldenburg</div>
+                <div class="education-details">
+                    <strong>Energy Electronics - Plant Technology</strong>
+                    <ul>
+                        <li>Practical final grade: 1</li>
+                        <li>Theoretical final grade: 2</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">LANGUAGES</h2>
+            <div class="languages-grid">
+                <div class="language-item">
+                    <span class="language-name">German</span>
+                    <span class="language-level">Native Speaker</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">English</span>
+                    <span class="language-level">Business Fluent</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Dutch</span>
+                    <span class="language-level">Basic Knowledge</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Russian</span>
+                    <span class="language-level">Basic Knowledge</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Polish</span>
+                    <span class="language-level">Basic Knowledge</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2 class="section-title">DRIVING LICENSES</h2>
+            <div class="licenses">A, A1, B, BE, C1E, CE</div>
+        </div>
+    </div>
+</body>
+</html>

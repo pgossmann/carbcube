@@ -593,3 +593,52 @@ section {
     }
 }
 
+
+
+/* CV Download Styles */
+.cv-download-section {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.cv-download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 12px 25px;
+    background: var(--secondary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.cv-download-button:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    text-decoration: none;
+}
+
+.cv-download-contact {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.cv-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: var(--transition);
+}
+
+.cv-link:hover {
+    opacity: 1;
+    color: var(--accent-color);
+    text-decoration: none;
+}
