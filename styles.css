@@ -631,6 +631,64 @@ section {
 
 
 
+/* Impressum Styles */
+.impressum-section {
+    background: var(--bg-light);
+}
+
+.impressum-content {
+    text-align: left;
+}
+
+.impressum-block {
+    background: white;
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.impressum-block h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+}
+
+.impressum-block h4 {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.impressum-block p {
+    color: #666;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+
+.impressum-block p:first-of-type {
+    margin-top: 0;
+}
+
+@media (max-width: 768px) {
+    .impressum-block {
+        padding: 2rem;
+    }
+    
+    .impressum-block h3 {
+        font-size: 1.3rem;
+    }
+    
+    .impressum-block h4 {
+        font-size: 1.1rem;
+    }
+}
+
 /* CV Download Styles */
 .cv-download-section {
     margin-top: 3rem;
