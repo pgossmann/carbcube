@@ -371,11 +371,22 @@
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 1000,
-            once: true,
-            offset: 100
-        });
+        // Disable AOS on mobile devices for better reliability
+        if (window.innerWidth > 768) {
+            AOS.init({
+                duration: 1000,
+                once: true,
+                offset: 100
+            });
+        } else {
+            // On mobile, remove all AOS attributes to ensure content shows immediately
+            document.querySelectorAll('[data-aos]').forEach(function(element) {
+                element.removeAttribute('data-aos');
+                element.removeAttribute('data-aos-delay');
+                element.style.opacity = '1';
+                element.style.transform = 'none';
+            });
+        }
     </script>
 </body>
 
