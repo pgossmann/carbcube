@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Ralf Buscher - Management & Engineering für Industrieanlagen</title>
+    <title>Carbcube - In Überarbeitung / Under Maintenance</title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,390 +11,226 @@
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
-    <!-- AOS (Animate On Scroll) -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #27ae60;
+            --text-light: #ecf0f1;
+        }
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            overflow: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+            animation: backgroundMove 30s linear infinite;
+        }
+
+        @keyframes backgroundMove {
+            from { transform: translate(0, 0); }
+            to { transform: translate(60px, 60px); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .maintenance-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        .logo-icon {
+            font-size: 5rem;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .brand-name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+            letter-spacing: 2px;
+        }
+
+        .content-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .language-divider {
+            border-left: 2px solid rgba(255, 255, 255, 0.3);
+            margin: 0 2rem;
+        }
+
+        .language-section {
+            flex: 1;
+            padding: 1rem;
+        }
+
+        .language-flag {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .language-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .language-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        .icon-tools {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin: 2rem 0;
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .footer-text {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            .maintenance-container {
+                padding: 2rem 1rem;
+            }
+
+            .brand-name {
+                font-size: 2rem;
+            }
+
+            .content-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .language-section {
+                padding: 1rem 0;
+            }
+
+            .language-divider {
+                display: none;
+            }
+
+            .language-title {
+                font-size: 1.5rem;
+            }
+
+            .language-text {
+                font-size: 1rem;
+            }
+
+            .logo-icon {
+                font-size: 4rem;
+            }
+
+            .flex-container {
+                flex-direction: column !important;
+            }
+        }
+    </style>
 </head>
-
 <body>
-    <!-- Language Switcher -->
-    <div class="language-switcher">
-        <a href="index.html" class="lang-link active">
-            <img src="https://flagcdn.com/24x18/de.png" alt="Deutsch" class="flag-icon">
-            DE
-        </a>
-        <a href="index-en.html" class="lang-link">
-            <img src="https://flagcdn.com/24x18/gb.png" alt="English" class="flag-icon">
-            EN
-        </a>
+    <div class="container">
+        <div class="maintenance-container">
+            <!-- Logo Icon -->
+            <div class="logo-icon">
+                <i class="bi bi-box"></i>
+            </div>
+
+            <!-- Brand Name -->
+            <h1 class="brand-name">CARBCUBE</h1>
+
+            <!-- Main Content -->
+            <div class="content-section">
+                <div class="icon-tools">
+                    <i class="bi bi-gear-fill"></i>
+                </div>
+
+                <!-- Bilingual Content -->
+                <div class="d-flex justify-content-center align-items-start flex-container">
+                    <!-- German Section -->
+                    <div class="language-section">
+                        <div class="language-flag">🇩🇪</div>
+                        <h2 class="language-title">In Überarbeitung</h2>
+                        <p class="language-text">
+                            Unsere Website wird derzeit überarbeitet.<br>
+                            Wir werden bald zurück sein.
+                        </p>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="language-divider"></div>
+
+                    <!-- English Section -->
+                    <div class="language-section">
+                        <div class="language-flag">🇬🇧</div>
+                        <h2 class="language-title">Under Maintenance</h2>
+                        <p class="language-text">
+                            Our website is currently under maintenance.<br>
+                            We will be back soon.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer-text">
+                <p>Carbcube UG (haftungsbeschränkt) | 2025</p>
+            </div>
+        </div>
     </div>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-4 text-center mb-4 mb-lg-0" data-aos="fade-right">
-                    <div class="profile-image-container">
-                        <img src="profilbild.jpg" alt="Ralf Buscher" class="profile-image">
-                    </div>
-                </div>
-                <div class="col-lg-8" data-aos="fade-left">
-                    <h1>Ralf Buscher</h1>
-                    <p class="hero-subtitle">Wirtschaftlich tragfähige Investitionen im industriellen Kontext</p>
-                    <p class="hero-description">Ralf Buscher steht für technisch fundierten Einkauf mit Projektverantwortung – ob zur temporären Entlastung Ihres Teams, zur Übernahme kritischer Projektphasen oder als gezielte Intervention zur Effizienzsteigerung Ihrer Beschaffungsprozesse. Ein interdisziplinäres, lösungsorientiertes und durchsetzungsstarkes Vorgehen garantiert dabei nachhaltige Resultate. Unabhängig davon, ob in Festanstellung, beratender Funktion oder als Interimslösung, bin ich der strukturelle Partner an Ihrer Seite.</p>
-                    <p class="hero-tagline">360 Grad denken, zielgerichtet lenken</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services-section" id="services">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Leistungen</h2>
-
-            <!-- Service 1: Management -->
-            <div class="service-block" data-aos="fade-up" data-aos-delay="100">
-                <div class="row align-items-center">
-                    <div class="col-lg-8">
-                        <h3 class="service-title">
-                            <i class="bi bi-gear-fill service-icon"></i>
-                            Management & Projekteinkauf für Industrieanlagen
-                        </h3>
-                        <p class="service-description">
-                            Hochspezialisiertes Management im technischen Einkauf mit Fokus auf
-                            Industrieprojekte im Bereich Energieerzeugung sowie übergreifenden Projekteinkauf für
-                            komplexe Anlagenbauvorhaben.
-                        </p>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h5>Fokusbereiche im Einkauf:</h5>
-                                <ul class="service-list">
-                                    <li>Energieerzeugung für die Industrie</li>
-                                    <li>Projekteinkauf für industrielle Großprojekte</li>
-                                    <li>Technische Einkaufsunterstützung</li>
-                                    <li>Budgetierung & Kostenkontrolle</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h5>Strategische Mandate:</h5>
-                                <ul class="service-list">
-                                    <li>Einkaufsanalyse & Prozessverbesserung</li>
-                                    <li>Spend-Analyse & Kostenbenchmarking</li>
-                                    <li>Kostenanalysen & Make-or-Buy-Entscheidungen</li>
-                                    <li>KPI-Einführung und -Pflege</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 text-center">
-                        <div class="service-visual">
-                            <i class="bi bi-diagram-3 display-1 text-primary"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service 2: Engineering -->
-            <div class="service-block bg-light" data-aos="fade-up" data-aos-delay="200">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 text-center order-lg-1">
-                        <div class="service-visual">
-                            <i class="bi bi-sun display-1 text-success"></i>
-                        </div>
-                        <div class="mt-3">
-                            <a href="Planungsstufen-RB-DE.pdf" class="btn btn-success" target="_blank" download>
-                                <i class="bi bi-download"></i>
-                                Übersicht Planungsstufen
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 order-lg-2">
-                        <h3 class="service-title">
-                            <i class="bi bi-lightning-charge-fill service-icon text-success"></i>
-                            Ganzheitliches Engineering für Erneuerbare Energien
-                        </h3>
-                        <p class="service-description">
-                            Umfassende Ingenieur- und Beratungsleistungen für Photovoltaik-, Windkraft- und
-                            Batteriespeicheranlagen von der Machbarkeitsstudie bis zur Inbetriebnahme.
-                        </p>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h5>Projektphasen:</h5>
-                                <ul class="service-list">
-                                    <li>Machbarkeits- und Standortanalyse</li>
-                                    <li>Ertrags- und Wirtschaftlichkeitsanalysen</li>
-                                    <li>Koordination der Bauleitplanung</li>
-                                    <li>Behördenmanagement & Gutachtenkoordination</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <h5>Umsetzung:</h5>
-                                <ul class="service-list">
-                                    <li>Technische Planung & Ausschreibung</li>
-                                    <li>Vergabe- und Angebotsmanagement</li>
-                                    <li>Projektsteuerung und Bauüberwachung</li>
-                                    <li>Inbetriebnahme, Prüfung & Abnahme</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Carbon Cube Philosophy -->
-            <div class="philosophy-section" data-aos="fade-up" data-aos-delay="300">
-                <div class="row justify-content-center">
-                    <div class="col-lg-10 text-center">
-                        <div class="philosophy-box">
-                            <h3 class="philosophy-title">
-                                <i class="bi bi-box philosophy-icon"></i>
-                                Der „Carbon Cube" als Leitbild
-                            </h3>
-                            <p class="philosophy-text">
-                                Carbcube steht für den „Carbon Cube" – ein Symbol für wirtschaftlich tragfähige
-                                Klimainvestitionen im industriellen Kontext. Der Würfel repräsentiert Stabilität und
-                                Struktur, jede seiner Flächen steht für einen zentralen Projektbeteiligten z.B.: Investor,
-                                Lenkungsausschuss, Projektleitung, Technik und weitere Projektbeteiligte, Einkauf, Behörden – nur im Zusammenspiel
-                                entsteht ein tragfähiges Ganzes.
-                            </p>
-                            <p class="philosophy-highlight">
-                                <strong>Der strukturelle Partner an Ihrer Seite – präzise, mehrdimensional
-                                    und lösungsorientiert.</strong>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section class="experience-section" id="experience">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Berufserfahrung</h2>
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="experience-title">Projektleiter – Investitionen - Erneuerbare Energien</h3>
-                        <p class="experience-company">Wirtgen</p>
-                        <p class="experience-duration">Jan. 2025 – April 2025</p>
-                        <div class="experience-details">
-                            <p>Manager im Bereich erneuerbare Energien mit Fokus auf die Entwicklung, Planung und
-                                Umsetzung von PV- und Windenergieprojekten.</p>
-                            <ul>
-                                <li>Projektplanung eines Photovoltaik Parks 18 MWp mit skalierbarer Storage Lösung von
-                                    2MWh bis max. 10 MWh</li>
-                                <li>Unterstützung und operative Begleitung von Entwicklungs- und
-                                    Betriebsführungsprozessen</li>
-                                <li>Fokus auf pragmatische Lösungen, Kostenoptimierung und technische Qualitätssicherung
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="experience-title">Internationaler Project Procurement Manager</h3>
-                        <p class="experience-company">Quarzwerke GmbH - Frechen</p>
-                        <p class="experience-duration">April 2011 - Dez. 2024</p>
-                        <div class="experience-details">
-                            <ul>
-                                <li>Verantwortung für die Beschaffung aller Projekte im Bereich erneuerbare
-                                Energien, inkl. PV, Wind, Speicher und Power to Heat, mit
-                                Fokus auf Total Cost of Ownership.</li>
-                                <li>Planung und Initiierung eines neuen Geschäftsfeldes für Sekundärrohstoffe
-                                durch den Bau einer Behälterglasrecyclinganlage in Polen
-                                mit einem Budget von ca. 40 Mio. €.</li>
-                                <li>Leitung der Beschaffung für den Neubau eines Werkes in Polen von
-                                2018 bis 2022, mit einem Projektbudget von ca. 40 Mio. €, sowie in
-                                Russland von 2015 bis 2018 mit einem Budget von ca. 35 Mio. €.</li>
-                                <li>Entwicklung der Beschaffungsstrategie und Planbudgets für Projekte
-                                in Zusammenarbeit mit der Projektleitung, inklusive Abstimmung
-                                von Liefer- und Zeitplänen sowie Erstellung von Beschaffungsplänen.</li>
-                                <li>Betreuung von Masterarbeiten und Ausbau bestehender sowie
-                                Aufbau neuer Lieferketten und Lieferantenbeziehungen in internationalen
-                                Beschaffungsmärkten.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 class="experience-title">Technischer Einkäufer</h3>
-                        <p class="experience-company">Profine Group</p>
-                        <p class="experience-duration">Apr. 2006 – März 2011</p>
-                        <div class="experience-details">
-                            <p>Einkauf von internationalen Projekten und Maschinen zur Erzeugung von Prozessenergien für
-                                die Kunststoffindustrie</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- CV Download Button -->
-        <div class="cv-download-section text-center" data-aos="fade-up" data-aos-delay="400">
-            <a href="Lebenslauf_Ralf_Buscher.pdf" class="cv-download-button" target="_blank" download>
-                <i class="bi bi-file-earmark-pdf-fill"></i>
-                Vollständigen Lebenslauf herunterladen
-            </a>
-        </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section class="skills-section bg-light" id="skills">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Kernkompetenzen</h2>
-            <div class="skills-grid">
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="bi bi-graph-up skill-icon"></i>
-                    <h4>Management</h4>
-                    <p>Technischer Einkauf und Projektsteuerung für Industrieanlagen</p>
-                </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
-                    <i class="bi bi-sun skill-icon"></i>
-                    <h4>Erneuerbare Energien</h4>
-                    <p>PV, Wind, Batteriespeicher, Wasserstoff-Technologien</p>
-                </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
-                    <i class="bi bi-gear skill-icon"></i>
-                    <h4>Projektmanagement</h4>
-                    <p>Ganzheitliche Betreuung von der Konzeption bis zur Übergabe</p>
-                </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
-                    <i class="bi bi-calculator skill-icon"></i>
-                    <h4>Wirtschaftlichkeitsanalyse</h4>
-                    <p>CAPEX/OPEX-Optimierung und TCO-Betrachtungen</p>
-                </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="500">
-                    <i class="bi bi-building skill-icon"></i>
-                    <h4>Behördenmanagement</h4>
-                    <p>Genehmigungsverfahren und Gutachtenkoordination</p>
-                </div>
-                <div class="skill-card" data-aos="fade-up" data-aos-delay="600">
-                    <i class="bi bi-globe skill-icon"></i>
-                    <h4>Internationales Geschäft</h4>
-                    <p>Länderübergreifende Projektrealisierung</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Kontakt</h2>
-            <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
-                <p>Ich begleite Sie als unabhängiger Partner auf Augenhöhe – mit Weitblick, technischer Tiefe und
-                    maximaler Verlässlichkeit.</p>
-                <p>Kontaktieren Sie mich für neue Projekte, Kooperationen und spannende Herausforderungen in der
-                    Energiewirtschaft oder im industriellen Anlagenbau.</p>
-
-                <div class="contact-details">
-                    <div class="contact-item">
-                        <i class="bi bi-envelope-fill contact-icon"></i>
-                        <a href="mailto:ralf-buscher@t-online.de" class="contact-link">ralf-buscher@t-online.de</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="bi bi-telephone-fill contact-icon"></i>
-                        <a href="tel:01722014350" class="contact-link">0172/2014350</a>
-                    </div>
-                </div>
-
-                <a href="mailto:ralf-buscher@t-online.de" class="contact-button">Kontakt aufnehmen</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Impressum Section -->
-    <section class="impressum-section bg-light" id="impressum">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Impressum</h2>
-            <div class="impressum-content" data-aos="fade-up" data-aos-delay="100">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <div class="impressum-block">
-                            <h3>Angaben gemäß § 5 TMG</h3>
-                            <h4>Betreiber und Verantwortlicher</h4>
-                            <p>
-                                Carbcube UG (haftungsbeschränkt)<br>
-                                Vertreten durch: Ralf Buscher<br>
-                                Samariterstraße 6<br>
-                                50968 Köln<br>
-                                HRB 119431, Amtsgericht Köln
-                            </p>
-                            
-                            <h4>Kontakt</h4>
-                            <p>
-                                Telefon: 0172 2014350<br>
-                                E-Mail: ralf-buscher@t-online.de
-                            </p>
-                            
-                            <h4>Haftung für Inhalte</h4>
-                            <p>
-                                Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
-                            </p>
-                            <p>
-                                Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.
-                            </p>
-                            
-                            <h4>Haftung für Links</h4>
-                            <p>
-                                Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
-                            </p>
-                            <p>
-                                Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.
-                            </p>
-                            
-                            <h4>Urheberrecht</h4>
-                            <p>
-                                Die durch die Betreiber dieser Seiten erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Beiträge Dritter sind als solche gekennzeichnet.
-                            </p>
-                            <p>
-                                Die Vervielfältigung, Bearbeitung, Verbreitung und jede Form der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
-                            </p>
-                            <p>
-                                Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // Disable AOS on mobile devices for better reliability
-        if (window.innerWidth > 768) {
-            AOS.init({
-                duration: 1000,
-                once: true,
-                offset: 100
-            });
-        } else {
-            // On mobile, remove all AOS attributes to ensure content shows immediately
-            document.querySelectorAll('[data-aos]').forEach(function(element) {
-                element.removeAttribute('data-aos');
-                element.removeAttribute('data-aos-delay');
-                element.style.opacity = '1';
-                element.style.transform = 'none';
-            });
-        }
-    </script>
 </body>
-
 </html>
